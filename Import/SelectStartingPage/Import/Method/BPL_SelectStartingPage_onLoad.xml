@@ -1,0 +1,39 @@
+﻿<AML>
+ <Item type="Method" id="C75CA62A35384BF7AFF4A2441246E135" action="add">
+  <comments>Set values in Dropdown list</comments>
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// AIP @ b+
+// Fill dropdown list in Form with available Starting Page options.
+// Function is called on Form load. 
+
+var inn = new top.Innovator();
+
+// Get current start item list values
+var startItems = inn.newItem("Value", "get");
+startItems.setProperty("source_id", "BFDEFE0CEE174B52B8972D49B446B812"); // id of List "StartingPage List"
+startItems.setAttribute("select", "value,label, sort_order,id");	
+startItems = startItems.apply();
+
+var div_startpage = getFieldByName("Starting_Page").id;
+var control_items = div_startpage.substring(0, div_startpage.indexOf("span"));
+var select = document.getElementById(control_items);
+
+var pages = startItems.getItemsByXPath("//Item[@type='Value']");
+
+// fill dropdown list
+for(var i = 0; i < startItems.getItemCount(); ++i) {
+    var singleItemID = pages.getItemByIndex(i).getID();
+    var singleItem = aras.getItemById("Value", singleItemID);
+      
+    var label = aras.getItemProperty(singleItem, "label");
+    // var value = aras.getItemProperty(singleItem, "value");
+    var option = document.createElement('option');
+
+     select.options[i] = new Option(label, singleItemID);
+}
+
+return null;]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>BPL_SelectStartingPage_onLoad</name>
+ </Item>
+</AML>

@@ -1,0 +1,16 @@
+﻿<AML>
+ <Item type="CommandBarSectionItem" id="79AD81B48F744309944DE087F43AB9FB" action="add">
+  <action>Add</action>
+  <related_id keyed_name="bpl_select_starting_page" type="CommandBarItem">
+   <Item type="CommandBarMenuButton" id="7E2E30E0709E4026883AB3CAFD0D19C6" action="add">
+    <label xml:lang="en">Select Starting Page</label>
+    <on_click_handler keyed_name="BPL_SelectStartingPage_Launch" type="Method">DDAF4662D8CE447F90B96488A11708C6</on_click_handler>
+    <parent_menu keyed_name="com.aras.innovator.cui_default.mwmm_tools_preferences" type="CommandBarMenu">2BC080C0CA3F4D3B80B32A4140E7F069</parent_menu>
+    <name>bpl_select_starting_page</name>
+   </Item>
+  </related_id>
+  <role keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</role>
+  <sort_order>2700</sort_order>
+  <source_id keyed_name="com.aras.innovator.cui_default.main_window_main_menu" type="CommandBarSection">585F641443474D72B90CDAF1D6064C3C</source_id>
+ </Item>
+</AML>
