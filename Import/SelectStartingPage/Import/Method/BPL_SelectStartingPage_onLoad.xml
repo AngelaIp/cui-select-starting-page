@@ -26,10 +26,10 @@ for(var i = 0; i < startItems.getItemCount(); ++i) {
     var singleItem = aras.getItemById("Value", singleItemID);
       
     var label = aras.getItemProperty(singleItem, "label");
-    // var value = aras.getItemProperty(singleItem, "value");
+    var value = aras.getItemProperty(singleItem, "value");
     var option = document.createElement('option');
 
-     select.options[i] = new Option(label, singleItemID);
+     select.options[i] = new Option(label, value);
 }
 
 return null;]]></method_code>
