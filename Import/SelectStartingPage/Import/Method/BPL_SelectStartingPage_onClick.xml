@@ -16,7 +16,7 @@ for(var i = 0; i < select.options.length; ++i)
 {
     if(select.options[i].selected === true)
     {
-        selectedValue = select.options[i].text ;
+        selectedValue = select.options[i].value;
         break;
     } 
 }
