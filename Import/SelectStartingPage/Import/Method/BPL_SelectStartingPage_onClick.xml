@@ -5,7 +5,7 @@
   <method_code><![CDATA[// AIP @ b+
 // Get selected value from From and set new Starting Page in User Item
 
-var inn = new top.Innovator();
+var inn = new Innovator();
 var div_startpage = getFieldByName("Starting_Page").id;
 var control_items = div_startpage.substring(0, div_startpage.indexOf("span"));
 var select = document.getElementById(control_items);
