@@ -6,30 +6,22 @@
 // Fill dropdown list in Form with available Starting Page options.
 // Function is called on Form load. 
 
-var inn = new top.Innovator();
+var inn = new Innovator();
 
-// Get current start item list values
-var startItems = inn.newItem("Value", "get");
-startItems.setProperty("source_id", "BFDEFE0CEE174B52B8972D49B446B812"); // id of List "StartingPage List"
-startItems.setAttribute("select", "value,label, sort_order,id");	
-startItems = startItems.apply();
-
+// Get dropdown element from GUI
 var div_startpage = getFieldByName("Starting_Page").id;
 var control_items = div_startpage.substring(0, div_startpage.indexOf("span"));
 var select = document.getElementById(control_items);
 
-var pages = startItems.getItemsByXPath("//Item[@type='Value']");
-
-// fill dropdown list
-for(var i = 0; i < startItems.getItemCount(); ++i) {
-    var singleItemID = pages.getItemByIndex(i).getID();
-    var singleItem = aras.getItemById("Value", singleItemID);
-      
-    var label = aras.getItemProperty(singleItem, "label");
-    var value = aras.getItemProperty(singleItem, "value");
-    var option = document.createElement('option');
-
-     select.options[i] = new Option(label, value);
+// Get current start item list values
+var listValues = [];
+listValues = aras.getListValues("BFDEFE0CEE174B52B8972D49B446B812"); // id of List "StartingPage List"
+for (var i = 0; i < listValues.length; i++) { 
+    var value = aras.getItemProperty(listValues[i], "value");
+	var	label = aras.getItemProperty(listValues[i], "label");
+	var option = document.createElement('option');
+    
+	select.options[i] = new Option(label, value); // fill dropdown list
 }
 
 return null;]]></method_code>
