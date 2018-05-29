@@ -4,7 +4,7 @@
   <related_id keyed_name="bpl_select_starting_page" type="CommandBarItem">
    <Item type="CommandBarMenuButton" id="7E2E30E0709E4026883AB3CAFD0D19C6" action="add">
     <label xml:lang="en">Select Starting Page</label>
-    <on_click_handler keyed_name="BPL_SelectStartingPage_Launch" type="Method">DDAF4662D8CE447F90B96488A11708C6</on_click_handler>
+    <on_click_handler keyed_name="BPL_SelectStartingPage_Launch" type="Method">3FE6DA2A0D8F4B9AAEA3F8B48633D6EE</on_click_handler>
     <parent_menu keyed_name="com.aras.innovator.cui_default.mwmm_tools_preferences" type="CommandBarMenu">2BC080C0CA3F4D3B80B32A4140E7F069</parent_menu>
     <name>bpl_select_starting_page</name>
    </Item>

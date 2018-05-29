@@ -1,28 +1,47 @@
 ﻿<AML>
- <Item type="Method" id="C75CA62A35384BF7AFF4A2441246E135" action="add">
+ <Item type="Method" id="95AF6FE013BF42A8A33ECB4F32941BBC" action="add">
   <comments>Set values in Dropdown list</comments>
   <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
-  <method_code><![CDATA[// AIP @ b+
-// Fill dropdown list in Form with available Starting Page options.
+  <method_code><![CDATA[// Fill dropdown list in Form with available Starting Page options.
 // Function is called on Form load. 
 
 var inn = new Innovator();
 
 // Get dropdown element from GUI
-var div_startpage = getFieldByName("Starting_Page").id;
-var control_items = div_startpage.substring(0, div_startpage.indexOf("span"));
-var select = document.getElementById(control_items);
+var itemTypeDropdownComponent = getFieldComponentByName("Starting_Page");
 
 // Get current start item list values
 var listValues = [];
+var itemTypeDropdownList = [];
+
 listValues = aras.getListValues("BFDEFE0CEE174B52B8972D49B446B812"); // id of List "StartingPage List"
 for (var i = 0; i < listValues.length; i++) { 
     var value = aras.getItemProperty(listValues[i], "value");
 	var	label = aras.getItemProperty(listValues[i], "label");
-	var option = document.createElement('option');
-    
-	select.options[i] = new Option(label, value); // fill dropdown list
+	itemTypeDropdownList.push({label: label, value: value});
 }
+
+// Get user´s current starting page
+var aliasId = aras.getUserID();
+var currentPage = "";
+if (aliasId)
+{
+    var current = inn.newItem("User", "get");
+    current.setID(aliasId);
+    current.setAttribute("select", "starting_page");
+    current = current.apply();
+    if (current.isError())
+	{
+	    return aras.AlertError("An error occured: " + current.getErrorDetail() ); 
+	}
+	currentPage = current.getProperty("starting_page","");
+}   
+
+// Fill list and set user´s current starting page
+itemTypeDropdownComponent.component.setState({
+		list: itemTypeDropdownList,
+		value: currentPage
+	});
 
 return null;]]></method_code>
   <method_type>JavaScript</method_type>

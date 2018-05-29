@@ -2,33 +2,26 @@
  <Item type="Method" id="4BD2D104FEAD4B8DB0B55D2227FB0EF9" action="add">
   <comments>Change Start Item</comments>
   <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
-  <method_code><![CDATA[// AIP @ b+
-// Get selected value from From and set new Starting Page in User Item
+  <method_code><![CDATA[// Get selected value from From and set new Starting Page in User Item
 
 var inn = new Innovator();
-var div_startpage = getFieldByName("Starting_Page").id;
-var control_items = div_startpage.substring(0, div_startpage.indexOf("span"));
-var select = document.getElementById(control_items);
+var itemTypeDropdownComponent = getFieldComponentByName("Starting_Page");
+// var listlength = itemTypeDropdownComponent.component.state.list.length; 
 
 // Get selected value from dropdown list
-var selectedValue;
-for(var i = 0; i < select.options.length; ++i) 
+var selectedValue = "";
+if(itemTypeDropdownComponent.getValue() !== "")
 {
-    if(select.options[i].selected === true)
-    {
-        selectedValue = select.options[i].value;
-        break;
-    } 
-}
-
-var aliasId = aras.getUserID();
+    selectedValue = itemTypeDropdownComponent.getValue();
+} 
 
 // Set new start page in User item 
+var aliasId = aras.getUserID();
 if (aliasId)
 {
     var editUser = inn.getItemById("User", aliasId);
     editUser.setAction("edit");
-    editUser.setProperty("starting_page",selectedValue);
+    editUser.setProperty("starting_page", selectedValue);
     editUser = editUser.apply();
     
     if (editUser.isError())
@@ -37,7 +30,11 @@ if (aliasId)
 	} 
 	else 
 	{
-	    aras.AlertSuccess("Starting Page was changed to " + selectedValue);
+	    if (selectedValue === ""){
+            aras.AlertSuccess("No Starting Page has been set.");
+	    } else {
+	        aras.AlertSuccess("Starting Page was changed to " + selectedValue);
+	    }
 	}
 }
 

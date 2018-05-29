@@ -1,7 +1,7 @@
 ﻿<AML>
  <Item type="Form" id="819E837AE95F475DA04BFB8C416D9C79" action="add">
   <category_form>0</category_form>
-  <height>160</height>
+  <height>220</height>
   <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
   <width>230</width>
   <name>BPL_SelectStartingPage</name>
@@ -28,7 +28,7 @@
       <source_id keyed_name="436B8E72F09840CF9038A4DB504D45C1" type="Body">436B8E72F09840CF9038A4DB504D45C1</source_id>
       <tab_stop>1</tab_stop>
       <x>60</x>
-      <y>80</y>
+      <y>120</y>
       <name>Ok_btn</name>
       <Relationships>
        <Item type="Field Event" id="46EC2E5680934436BBE310A13AA76DD1" action="add">
@@ -45,6 +45,7 @@
      </Item>
      <Item type="Field" id="5B451563F94C440D82A93A4D84E970E9" action="add">
       <border_width>0</border_width>
+      <display_length>150</display_length>
       <display_length_unit>px</display_length_unit>
       <field_type>dropdown</field_type>
       <font_color>#000000</font_color>
@@ -60,7 +61,7 @@
       <source_id keyed_name="436B8E72F09840CF9038A4DB504D45C1" type="Body">436B8E72F09840CF9038A4DB504D45C1</source_id>
       <tab_stop>1</tab_stop>
       <x>30</x>
-      <y>20</y>
+      <y>30</y>
       <name>Starting_Page</name>
      </Item>
     </Relationships>

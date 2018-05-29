@@ -4,16 +4,26 @@
 
 This package adds an additional CUI Menu Button that give users the ability to choose the **Starting Page** by themselves.
 
+In addition, this project can also be used as a simple and easy-to-follow example for the following use cases:
+-	Create and use custom forms
+-	Create CUI menu items
+-	How to use drop-down lists independent from ItemTypes
+-	:sparkles:**Learn how to handle type-ahead drop-down lists!**:sparkles:
+-	Item queries and error handling 
+-	…
+
 ## Project Details
 
 #### Built Using:
-Aras 11.0 SP9
+Aras 11.0 SP11
 
 #### Versions Tested:
-Aras 11.0 SP9
+Aras 11.0 SP11
+The current release supports Aras versions >=11.0 SP11.
+For older Aras versions (<= 11.0 SP10) you can use the available SP9 release.
 
 #### Browsers Tested:
-Internet Explorer 11, Chrome 61.0, Firefox ESR 52.4.0
+Internet Explorer 11, Chrome 66.0, Firefox ESR 52.7.4
 
 ## Installation
 
@@ -35,13 +45,11 @@ Internet Explorer 11, Chrome 61.0, Firefox ESR 52.4.0
     * _Note: You must login as root for the package import to succeed!_
 4. Enter the package name in the TargetRelease field.
     * Optional: Enter a description in the Description field.
-5. Enter the path to your local `..\SelectStartingPage\Import\imports.mf` file in the Manifest File field.
+5. Enter the path to your local `..\cui-select-starting-page\Import\imports.mf` file in the Manifest File field.
 6. Select **bpl.app.SelectStartingPage** in the Available for Import field.
 7. Select Type = **Merge** and Mode = **Thorough Mode**.
 8. Click **Import** in the top left corner.
 9. Close the Aras Package Import tool.
-
-You are now ready to login to Aras and try out the image importer.
 
 ## Usage
 
@@ -50,7 +58,10 @@ You are now ready to login to Aras and try out the image importer.
 3. Choose the new Starting Page from the drop down list.
 4. Click **Ok** to save the new Starting Page.
 
-![cui-select-starting-page](./Screenshots/ChangeStartingPage.png)
+![cui-select-starting-page](./Screenshots/StartingPage_HowToUse.png)
+
+5. Optional: Add additional Starting Pages in **StartingPage List**
+![cui-select-starting-page](./Screenshots/StartingPage_Tip.png)
 
 ## Contributing
 
@@ -63,7 +74,8 @@ You are now ready to login to Aras and try out the image importer.
 ## Credits
 
 Created by @AngelaIp
-
+Contributions by:
+@cgillis-aras
 
 ## License
 
